@@ -3,6 +3,7 @@
 /*** END JEKYLL ***/
 /*** CANCEL ***/
 body { overflow-x: hidden; }
+.content { overflow-y: scroll; }
 /*** END CANCEL ***/
 
 /*** Z-INDEXES ***/
@@ -17,18 +18,19 @@ body { overflow-x: hidden; }
 .content-table-header-cell:nth-child(1),
 .header-area-background { background-color: #370854; }
 .content-table-body-cell:nth-child(2),
-.footer-title { color: #370854; }
+.footer-title,
+.js-foundText { color: #370854; }
 
-body,
-html { background-color: #eee; }
+body { background-color: #eee; }
 
+html { background-color: white; }
 .content-table-header-cell,
 .header-area-name,
 .header-area-number { color: white; }
 
-.content-table-body-row:hover,
-.content-table-body-row:active,
-.content-table-body-row:focus { background-color: #AAA; }
+.js-table[attr-active="false"] .content-table-body-row:hover,
+.js-table[attr-active="false"] .content-table-body-row:active,
+.js-table[attr-active="false"] .content-table-body-row:focus { background-color: #AAA; }
 
 .content-table-footer,
 .content-table-header-cell:nth-child(2) { background-color: #363636; }
@@ -46,16 +48,19 @@ body,
 .content-table-header-cell,
 .header-area-name { font-family: Impact, serif; }
 
-.header-area-number { font-size: 3em; }
+.header-area-number { font-size: 4em; }
 .header-title { font-size: 2em; }
 .content-table-body-cell:nth-child(2) { font-size: 1.5em; }
 
+.content-table-header-cell:nth-child(1) { text-align: left; }
+.content-table-footer-cell:nth-child(2) .content-table-footer-input,
 .content-table-body-cell:nth-child(2),
-.header-area-number { text-align: center; }
+.header-area-number { text-align: center !important; }
 .footer-stamp,
 .header-area-name { text-align: right; }
 
-.content-table-body-cell:nth-child(2) { font-weight: bold; }
+.content-table-body-cell:nth-child(2),
+.js-foundText { font-weight: bold; }
 /*** END FONTS ***/
 
 /*** MEDIA ***/
@@ -82,6 +87,8 @@ body,
 
     .header-area-background { border-radius: 50%; }
     /** END COMMONS **/
+
+body { height: 100vh; }
 
 body {
     padding: 1em;
@@ -121,17 +128,17 @@ body {
 /*** END INTERRACTIVITY ***/
 
 /*** MEDIA-QUERIES ***/
-@media screen and (max-width: 50em) {
     .content-table-body-cell:nth-child(2),
+    .content-table-header-cell:nth-child(2),
     .header-area { width: 35%; }
     .content-table-body-cell:nth-child(1),
+    .content-table-header-cell:nth-child(1),
     .header-title { width: 65%; }
 
     .header-area-background {
-        width: 200%;
-        position: absolute; top: -45%; right: -45%;
+        width: 150%;
+        position: absolute; top: -75%; right: -45%;
     }
-}
 /*** END MEDIA-QUERIES ***/
 
 /*** DECORATION ***/
@@ -141,6 +148,22 @@ body {
 /*** END SANDBOX ***/
 
 /*** CSS HACKS ***/
+.content,
+.content-table {
+    width: 100%; height: 100%;
+}
+.u-input {
+//    text-transform: uppercase;
+}
+.pg-live.content-table-footer {
+    display: none !important;
+}
+@media screen and (min-width: 50em) {
+    body {
+        max-width: 30em;
+        margin: 0 auto;
+    }
+}
 /*** END CSS HACKS ***/
 
 /*** TO DELETE ***/
