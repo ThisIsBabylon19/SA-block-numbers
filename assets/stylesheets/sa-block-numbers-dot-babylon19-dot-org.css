@@ -157,7 +157,7 @@ body {
 .u-input {
 //    text-transform: uppercase;
 }
-.pg-live.content-table-footer {
+.pg-live .content-table-footer-input.is-suburbFilter {
     display: none !important;
 }
 @media screen and (min-width: 50em) {
