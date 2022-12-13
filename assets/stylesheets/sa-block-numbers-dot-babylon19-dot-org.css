@@ -3,7 +3,10 @@
 /*** END JEKYLL ***/
 /*** CANCEL ***/
 body,
-html { overflow-x: hidden; }
+html {
+    width: 100%; height: 100%;
+    overflow-x: hidden;
+}
 .content { overflow-y: scroll; }
 /*** END CANCEL ***/
 
@@ -12,12 +15,16 @@ html { overflow-x: hidden; }
 .header-area-wrap,
 .header-title,
 .hr,
-.content { position: relative; z-index: 20; }
+.content,
+.map { position: relative; z-index: 20; }
 /*** END Z-INDEXES ***/
 
 /*** COLORS ***/
 .content-table-header-cell:nth-child(1),
 .header-area-background { background-color: #370854; }
+.map-svg-path:hover,
+.map-svg-path:active,
+.map-svg-path:focus { fill: #370854; }
 .content-table-body-cell:nth-child(2),
 .footer-title,
 .js-foundText { color: #370854; }
@@ -32,6 +39,7 @@ html { background-color: white; }
 .js-table[attr-active="false"] .content-table-body-row:hover,
 .js-table[attr-active="false"] .content-table-body-row:active,
 .js-table[attr-active="false"] .content-table-body-row:focus { background-color: #AAA; }
+.map-svg { fill: #AAA; }
 
 .content-table-footer,
 .content-table-header-cell:nth-child(2) { background-color: #363636; }
@@ -90,8 +98,6 @@ body,
     .header-area-background { border-radius: 50%; }
     /** END COMMONS **/
 
-body { height: 100vh; }
-
 body {
     padding: 1em;
 }
@@ -124,6 +130,17 @@ body {
     margin: 1em auto;
     background-color: #AAA;
 }
+
+.map {
+}
+.map-svg {
+    width: auto; height: auto; max-height: 20vh;
+    display: block;
+    margin: auto;
+    stroke-width: 2;
+}
+.map-svg-path {
+}
 /*** END COMPONENTS ***/
 
 /*** INTERRACTIVITY ***/
@@ -141,6 +158,13 @@ body {
         width: 150%;
         position: absolute; top: -75%; right: -45%;
     }
+
+@media screen and (max-width: 30em) {
+    .map-svg {// max-height: 20vh; }
+}
+@media screen and (min-width: 30em) {
+    .map-svg {// max-height: 30vh; }
+}
 /*** END MEDIA-QUERIES ***/
 
 /*** DECORATION ***/
@@ -169,5 +193,5 @@ body {
 /*** END CSS HACKS ***/
 
 /*** TO DELETE ***/
-.header-area-background { opacity: .5; }
+.header-area-background {// opacity: .5; }
 /*** END TO DELETE ***/
